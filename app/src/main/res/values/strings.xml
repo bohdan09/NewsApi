@@ -9,4 +9,5 @@
     <string name="toolbarTitle">News</string>
     <string name="retry">Try again</string>
     <string name="top">TOP</string>
+    <string name="no_news">No top news now</string>
 </resources>

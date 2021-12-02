@@ -59,7 +59,7 @@ class StoriesFragment : Fragment() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             model.news.collectLatest { news ->
-                topNewsAdapter.submitData(news.filter { it.top == "1" })
+                topNewsAdapter.submitData(news.filter { it.type == NewsType.STORIES.type })
             }
         }
     }
@@ -75,12 +75,13 @@ class StoriesFragment : Fragment() {
     }
 
     private fun setupTopNewsRecycler() {
-        binding.topNewsItem.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.topNewsItem.adapter = topNewsAdapter
-        val dividerItemDecoration =
-            CustomItemDecorator(requireContext())
-        binding.topNewsItem.addItemDecoration(dividerItemDecoration)
+        with(binding) {
+            topNewsItem.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            topNewsItem.adapter = topNewsAdapter
+            val dividerItemDecoration =
+                CustomItemDecorator(requireContext())
+            topNewsItem.addItemDecoration(dividerItemDecoration)
+        }
     }
-
 }

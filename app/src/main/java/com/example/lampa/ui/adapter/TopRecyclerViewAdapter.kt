@@ -1,6 +1,7 @@
 package com.example.lampa.ui.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,16 +19,17 @@ class TopRecyclerViewAdapter : PagingDataAdapter<NewsItem, RecyclerView.ViewHold
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.top_item_recycler, parent, false)
         return MyViewHolder(view)
     }
 
-    inner class MyViewHolder(iten: View) : RecyclerView.ViewHolder(iten) {
-        private val binding = TopItemRecyclerBinding.bind(iten)
-
+    inner class MyViewHolder(item: View) : RecyclerView.ViewHolder(item) {
+        private val binding = TopItemRecyclerBinding.bind(item)
         @SuppressLint("SetTextI18n")
         fun bind(newsItem: NewsItem) {
+            binding.mainLay.visibility = View.VISIBLE
             with(binding) {
                 topTitleNews.text = newsItem.title
                 Glide.with(topImageNews).load(newsItem.img).centerCrop()

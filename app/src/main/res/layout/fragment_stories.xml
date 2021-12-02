@@ -12,16 +12,56 @@
         android:id="@+id/top_news_item"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
+
+    <View
+        android:id="@+id/topFlag"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/top_flag"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/top_news_item"
+        app:layout_constraintTop_toTopOf="@+id/top_news_item"></View>
+
+    <ImageView
+        android:id="@+id/fireIV"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/topFlag"
+        app:layout_constraintEnd_toEndOf="@+id/topFlag"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="@+id/topFlag"
+        app:layout_constraintTop_toTopOf="@+id/topFlag"
+        app:layout_constraintVertical_bias="0.51"
+        app:srcCompat="@drawable/top_icon" />
+
+    <TextView
+        android:id="@+id/topTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/top"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/topFlag"
+        app:layout_constraintEnd_toEndOf="@+id/topFlag"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="@+id/topFlag"
+        app:layout_constraintTop_toTopOf="@+id/topFlag" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_news_item" />
+
 </androidx.constraintlayout.motion.widget.MotionLayout>
